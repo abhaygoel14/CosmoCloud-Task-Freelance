@@ -5,6 +5,7 @@ import { FormValues, NestedList } from "../../types/todo";
 import { Box, Button, Typography } from "@mui/material";
 import FormList from "./FormList";
 import FormField from "./FormField";
+import useIsLargeView from "../../utils/useIsLargeView";
 
 const initialList: NestedList = [
   {
@@ -40,20 +41,18 @@ const FormLayout: FC = () => {
           : initialList,
       },
     });
+  const isLarge = useIsLargeView(650);
   const handleSave = handleSubmit((value) => {
     localStorage.setItem("List", JSON.stringify(value.nestedList));
-    console.log(
-      "List saved in local storage. Check there",
-      JSON.stringify(value.nestedList)
-    );
+    console.log("List saved in local storage. Check there", value.nestedList);
   });
   return (
     <>
       <Box
         sx={{
           alignItems: "center",
-          margin: "50px auto",
-          width: "560px",
+          margin: isLarge ? "50px auto" : "50px 4px",
+          width: isLarge ? "560px" : "100%",
         }}
       >
         <Box
@@ -62,7 +61,7 @@ const FormLayout: FC = () => {
             justifyContent: "space-between",
           }}
         >
-          <Typography variant="body1">Fields names & types</Typography>
+          <Typography variant="h6">Fields names & types</Typography>
           <Box
             sx={{
               display: "flex",

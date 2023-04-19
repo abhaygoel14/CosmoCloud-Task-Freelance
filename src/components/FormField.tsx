@@ -25,7 +25,6 @@ const FormField: ((props: {
   children?: ReactElement;
 }) => ReactElement) & {
   FormList: typeof FormList;
-  FormListChildren: typeof FormList;
 } = function ({ onRegister, onCheck, onRemove, children }) {
   const [type, setType] = React.useState("string");
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -39,7 +38,7 @@ const FormField: ((props: {
         <StyledTextInput
           className="flex-grow"
           {...onRegister("value")}
-          type="text"
+          type={type}
           placeholder=""
           variant="outlined"
           onChange={handleChange}
@@ -58,6 +57,7 @@ const FormField: ((props: {
           <MenuItem value="number">Number</MenuItem>
           <MenuItem value="boolean">Boolean</MenuItem>
           <MenuItem value="object">Object</MenuItem>
+          <MenuItem value="integer">Integer</MenuItem>
         </Select>
         <Switch
           {...onRegister("isRequired")}
@@ -73,6 +73,5 @@ const FormField: ((props: {
 };
 
 FormField.FormList = FormList;
-FormField.FormListChildren = FormList;
 
 export default FormField;

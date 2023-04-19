@@ -4,6 +4,7 @@ import { useFieldArray } from "react-hook-form";
 import { Control } from "react-hook-form/dist/types/form";
 import { FormValues } from "../../types/todo";
 import { Box } from "@mui/material";
+import useIsLargeView from "../../utils/useIsLargeView";
 
 const FormList: (props: {
   name: "nestedList" | `nestedList.${number}.list`;
@@ -23,7 +24,7 @@ const FormList: (props: {
   ) => ReactElement;
 }) => ReactElement = function ({ name, control, renderAddButton, renderList }) {
   const { fields, append, remove } = useFieldArray({ name, control });
-
+  const isLarge = useIsLargeView(650);
   return (
     <>
       {renderAddButton?.((todo) => append(todo as any))}
@@ -31,7 +32,7 @@ const FormList: (props: {
         <Box
           sx={{
             alignItems: "center",
-            width: "500px",
+            width: isLarge ? "500px" : "100%",
             gap: 3,
           }}
         >
