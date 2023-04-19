@@ -28,9 +28,9 @@ Ans :
 
 4. The FormField component takes several props, including onRegister, which is a function that registers the form input with react-hook-form, onCheck, which is a function that updates the form values based on user input, and onRemove, which is a function that removes the field from the list.
 
-5. The FormField component also renders a FormList component for nested fields, which uses similar props and functions to render and manage the sub-fields.
+5. The FormField component also renders a `FormList` component for nested fields, which uses similar props and functions to render and manage the sub-fields.
 
-Finally, the component renders a Button component that saves the form data to localStorage when clicked, using the handleSave function defined earlier in the code.
+Finally, the component renders a `Button component` that saves the form data to localStorage when clicked, using the handleSave function defined earlier in the code.
 
 
 ![Diagram](https://user-images.githubusercontent.com/78078088/233142758-2784807d-ab10-42ad-bfa7-2e00e31a2d03.png)
