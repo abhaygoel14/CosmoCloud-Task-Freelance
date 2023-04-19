@@ -25,6 +25,7 @@ const FormField: ((props: {
   children?: ReactElement;
 }) => ReactElement) & {
   FormList: typeof FormList;
+  FormListChildren: typeof FormList;
 } = function ({ onRegister, onCheck, onRemove, children }) {
   const [type, setType] = React.useState("string");
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -72,5 +73,6 @@ const FormField: ((props: {
 };
 
 FormField.FormList = FormList;
+FormField.FormListChildren = FormList;
 
 export default FormField;
