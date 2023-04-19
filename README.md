@@ -2,7 +2,7 @@
 
 Created an interface, users can add more fields by clicking the “+”
 icon, delete any field, define a type like `string`, `number` etc.
-These are the types you should handle.
+These are the types should handle.
 1. String
 2. Number
 3. Boolean
